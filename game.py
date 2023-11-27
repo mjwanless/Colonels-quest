@@ -31,11 +31,27 @@ def make_board():
 
 def make_character():
 	print("Character made")
-	return {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 5}
+	return {"X-coordinate": 0, "Y-coordinate": 0, "CurrentHP": 25, "MaxHP": 25, "MaxMana": 100, "CurrentMana": 100,
+	        "Exp": 0, "CurrentLevel": 0}
+
+
+def make_hen():
+	return {"CurrentHP": 15, "MaxHP": 15, "ExpValue": 1}
+
+
+def make_silkie():
+	return {"CurrentHP": 30, "MaxHP": 30, "ExpValue": 3}
+
+
+def make_rooster():
+	return {"CurrentHP": 50, "MaxHP": 50, "ExpValue": 5}
+
+
+def make_sanders():
+	return {"CurrentHP": 100, "MaxHP": 100, "ExpValue": 100}
 
 
 def describe_current_location(board, character):
-
 	for row in range(5):
 		for col in range(21):
 			if character["Y-coordinate"] == row and character["X-coordinate"] == col:
@@ -121,8 +137,6 @@ def game():
 	"""
 	Drive the game
 	"""
-	rows = 3
-	columns = 3
 	board = make_board()
 	character = make_character()
 	achieved_goal = False
@@ -135,6 +149,7 @@ def game():
 			describe_current_location(board, character)
 		else:
 			print("Nice try, but that direction isn't valid! Please try again.")
+
 
 #       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
 # 		there_is_a_challenger = check_for_foes()
