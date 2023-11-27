@@ -35,6 +35,17 @@ def make_character():
 
 
 def describe_current_location(board, character):
+
+	for row in range(5):
+		for col in range(21):
+			if character["Y-coordinate"] == row and character["X-coordinate"] == col:
+				print("[*]", end=" ")
+			elif (row, col) in board.keys():
+				print("[ ]", end=" ")
+			else:
+				print("   ", end=" ")
+		print("\n")
+
 	print(board[(character["Y-coordinate"], character["X-coordinate"])])
 
 
