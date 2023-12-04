@@ -58,9 +58,9 @@ def game():
 				else:
 					print("Fighting Roosters")
 					combat_logic.combat(character, "rooster")
-
-			#   if character_has_leveled():
-			#       execute_glow_up_protocol()
+			#   Here, you should have something like:
+			#   if character["Exp"] >= character["Exp Needed"]:
+			#       level_up()
 			achieved_goal = movement.check_if_goal_attained(character)
 		else:
 			# Add story elements to this, from planning documents

@@ -77,7 +77,9 @@ def combat(character, enemy):
 			print(f"You've defeated the {enemy['name']}! ")
 			spells.post_fight_heal(character)
 			character["Exp"] += enemy["Exp Value"]
-			print(f"You've gained {enemy['Exp Value']} xp. You have {character['Exp']}/{character['Exp Needed']} xp")
+			print(f"You've gained {enemy['Exp Value']} xp. You have {character['Exp']} xp")
+
+			# Move this to outside of the combat function (look at the sample outline from chris)
 			if character["Current Level"] < 3:
 				if character["Exp"] >= character["Exp Needed"]:
 					character["Current Level"] += 1
