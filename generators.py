@@ -28,24 +28,24 @@ def make_character():
 		"Max Mana": 100,
 		"Current Mana": 100,
 		"Exp": 0,
-		"Current Level": 1}
+		"Current Level": 3}
 
 
 
 
 
 def make_hen():
-	return {"Current HP": 15, "Max HP": 15, "Exp Value": 1}
+	return {"name": "Hen", "Current HP": 15, "Max HP": 15, "Exp Value": 1}
 
 
 def make_silkie():
-	return {"Current HP": 30, "Max HP": 30, "Exp Value": 3}
+	return {"name": "Silkie", "Current HP": 30, "Max HP": 30, "Exp Value": 3}
 
 
 def make_rooster():
-	return {"Current HP": 50, "Max HP": 50, "Exp Value": 0}
+	return {"name": "Rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 0}
 
 
 def make_sanders():
-	return {"Current HP": 100, "Max HP": 100, "Exp Value": 0}
+	return {"name": "Colonel Sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}
 

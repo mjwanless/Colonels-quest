@@ -14,10 +14,6 @@ import combat_logic
 def check_for_foes():
 	return True
 
-
-# return random.randint(1, 4) == 1
-
-
 #
 # def guessing_game(character):
 #
@@ -32,6 +28,7 @@ def check_for_foes():
 #
 # 		character["Current HP"] -= 1
 #
+
 
 def game():
 	"""
@@ -50,21 +47,19 @@ def game():
 			movement.move_character(character, direction)
 			movement.describe_current_location(board, character)
 			if (character["X-coordinate"], character["Y-coordinate"]) == (19, 2):
-				print("Fighting Sanders!")
-			# 	combat(character, sanders)
+				combat_logic.combat(character, "sanders")
 			there_is_a_challenger = check_for_foes()
 			if there_is_a_challenger:
 				if character['Current Level'] == 1:
 					story.story_intro()
 					print("Fighting Hens")
-				#   combat(character, hen)
+					combat_logic.combat(character, "hen")
 				elif character['Current Level'] == 2:
 					print("Fighting Silkies")
-				#   combat(character, silkie)
+					combat_logic.combat(character, "silkie")
 				else:
 					print("Fighting Roosters")
-				#   combat(character, rooster)
-				print(f"The current character level is: Level {character['Current Level']}")
+					combat_logic.combat(character, "rooster")
 
 			#   if character_has_leveled():
 			#       execute_glow_up_protocol()
