@@ -22,48 +22,44 @@ def make_board():
 	board_dictionary.update({(2, 17): f'You\'re in room ({2}, {17}): There is a door here.'})
 	board_dictionary.update({(2, 20): f'You\'re in room ({2}, {20}): This is the end of the game.'})
 
-	# for row in range(5):
-	# 	for col in range(21):
-	# 		if (row, col) in board_dictionary.keys():
-	# 			print(board_dictionary[(row, col)])
-
 	return board_dictionary
 
 
 def make_character():
 	print("Character made")
-	return {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 25, "MaxHP": 25, "MaxMana": 100, "CurrentMana": 100,
-	        "Exp": 0, "CurrentLevel": 1}
+	return {"X-coordinate": 19, "Y-coordinate": 2, "Current HP": 25, "Max HP": 25, "Max Mana": 100, "Current Mana":
+		100,
+	        "Exp": 0, "Current Level": 1}
 
 
 def make_hen():
-	return {"CurrentHP": 15, "MaxHP": 15, "ExpValue": 1}
+	return {"Current HP": 15, "Max HP": 15, "Exp Value": 1}
 
 
 def make_silkie():
-	return {"CurrentHP": 30, "MaxHP": 30, "ExpValue": 3}
+	return {"Current HP": 30, "Max HP": 30, "Exp Value": 3}
 
 
 def make_rooster():
-	return {"CurrentHP": 50, "MaxHP": 50, "ExpValue": 5}
+	return {"Current HP": 50, "Max HP": 50, "Exp Value": 5}
 
 
 def make_sanders():
-	return {"CurrentHP": 100, "MaxHP": 100, "ExpValue": 100}
+	return {"Current HP": 100, "Max HP": 100, "Exp Value": 100}
 
 
 def holy_blast(character):
 	damage_sum = 0
-	for attack in range(character["CurrentLevel"]):
+	for attack in range(character["Current Level"]):
 		damage_sum += random.randint(1, 6)
 
 	return damage_sum
 
 
 def smite(character):
-	character["CurrentMana"] -= 15
+	character["Current Mana"] -= 15
 	damage_sum = 0
-	for attack in range(character["CurrentLevel"]):
+	for attack in range(character["Current Level"]):
 		damage_sum += random.randint(1, 10)
 
 	return damage_sum
@@ -127,9 +123,9 @@ def peck():
 
 
 def judgement(character):
-	character["CurrentMana"] -= 30
+	character["Current Mana"] -= 30
 	damage_sum = 0
-	for attack in range(character["CurrentLevel"]):
+	for attack in range(character["Current Level"]):
 		damage_sum += random.choice((0, 4, 8))
 
 	return damage_sum
@@ -144,21 +140,21 @@ def breading():
 
 
 def heal(character):
-	character["CurrentMana"] -= 20
+	character["Current Mana"] -= 20
 	heal_sum = 0
-	for attack in range(character["CurrentLevel"]):
+	for attack in range(character["Current Level"]):
 		heal_sum += random.randint(3, 10)
 
 	return heal_sum
 
 
 def regen_mana(character):
-	character["CurrentMana"] += 7 + character["CurrentLevel"] * 3
+	character["Current Mana"] += 7 + character["Current Level"] * 3
 
 
 def post_fight_heal(character):
-	character["CurrentMana"] += 10
-	character["CurrentHP"] += 5
+	character["Current Mana"] += 10
+	character["Current HP"] += 5
 
 
 def describe_current_location(board, character):
@@ -219,11 +215,11 @@ def move_character(character, direction):
 		character["X-coordinate"] -= 1
 
 
-# def check_if_goal_attained(character):
-#
-# 	return(character["X-coordinate"], character["Y-coordinate"]) == (2, 2)
-#
-#
+def check_if_goal_attained(character):
+	print("You have won the game!")
+	return (character["X-coordinate"], character["Y-coordinate"]) == (20, 2)
+
+
 # def check_for_foes():
 #
 # 	return random.randint(1, 4) == 1
@@ -251,34 +247,33 @@ def game():
 	character = make_character()
 	achieved_goal = False
 	# Put game story function here (just prints out the story)
+	describe_current_location(board, character)
+
 	while not achieved_goal and character["Current HP"] > 0:
-		describe_current_location(board, character)
 		direction = get_user_choice()
 		valid_move = validate_move(board, character, direction)
 		if valid_move:
 			move_character(character, direction)
 			describe_current_location(board, character)
-		#       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
-		# 		there_is_a_challenger = check_for_foes()
-		# 		if there_is_a_challenger: (challenge)
-		#           (new version from sample code flow)
-		#           execute_challenge_protocol(character)
-		#           if character_has_leveled():
-		# 	            execute_glow_up_protocol()
-		#           (remove the below eventually as the above shows new if statement)
-		# 			guessing_game(character)
-		#       (add board to achieved_goal, like so: achieved_goal = check_if_goal_attained(board, character))
-		# 		achieved_goal = check_if_goal_attained(character)
+			#       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
+			# 		there_is_a_challenger = check_for_foes()
+			# 		if there_is_a_challenger: (challenge)
+			#           (new version from sample code flow)
+			#           execute_challenge_protocol(character)
+			#           if character_has_leveled():
+			# 	            execute_glow_up_protocol()
+			#           (remove the below eventually as the above shows new if statement)
+			# 			guessing_game(character)
+			#       (add board to achieved_goal, like so: achieved_goal = check_if_goal_attained(board, character))
+			achieved_goal = check_if_goal_attained(character)
 		else:
 			print("Nice try, but that direction isn't valid! Please try again.")
 
-
-#
-# if character["Current HP"] > 0:
-# 	print("Congrats on getting to the end! You win!")
-# else:
-# 	print("Sorry you didn't survive the game! Better luck next time.")
-#
+	if character["Current HP"] > 0:
+		print("Congrats on getting to the end! You win!")
+		return None
+	else:
+		print("Sorry you didn't survive the game! Better luck next time.")
 
 def main():
 	"""
