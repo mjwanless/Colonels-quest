@@ -23,27 +23,28 @@ def make_character():
 	return {
 		"X-coordinate": 0,
 		"Y-coordinate": 0,
-		"Current HP": 25,
-		"Max HP": 25,
-		"Max Mana": 100,
+		"Current HP": 20,
+		"Max HP": 20,
 		"Current Mana": 100,
+		"Max Mana": 100,
 		"Exp": 0,
-		"Current Level": 3}
+		"Exp Needed": 15,
+		"Current Level": 1}
 
 
 
 
 
 def make_hen():
-	return {"name": "Hen", "Current HP": 15, "Max HP": 15, "Exp Value": 1}
+	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 10}
 
 
 def make_silkie():
-	return {"name": "Silkie", "Current HP": 30, "Max HP": 30, "Exp Value": 3}
+	return {"name": "silkie", "Current HP": 30, "Max HP": 30, "Exp Value": 3}
 
 
 def make_rooster():
-	return {"name": "Rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 0}
+	return {"name": "rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 0}
 
 
 def make_sanders():

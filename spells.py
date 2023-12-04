@@ -75,7 +75,7 @@ def peck():
 	return random.choice((1, 2, 4, 0))
 
 
-def judgement(character):
+def judgment(character):
 	character["Current Mana"] -= 30
 	damage_sum = 0
 	for attack in range(character["Current Level"]):
@@ -103,8 +103,18 @@ def heal(character):
 
 def regen_mana(character):
 	character["Current Mana"] += 7 + character["Current Level"] * 3
+	if character["Current Mana"] > character["Max Mana"]:
+		character["Current Mana"] = character["Max Mana"]
 
 
 def post_fight_heal(character):
 	character["Current Mana"] += 10
 	character["Current HP"] += 5
+	balance(character)
+
+
+def balance(character):
+	if character["Current Mana"] > character["Max Mana"]:
+		character["Current Mana"] = character["Max Mana"]
+	if character["Current HP"] > character["Max HP"]:
+		character["Current HP"] = character["Max HP"]

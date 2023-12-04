@@ -51,8 +51,6 @@ def game():
 			there_is_a_challenger = check_for_foes()
 			if there_is_a_challenger:
 				if character['Current Level'] == 1:
-					story.story_intro()
-					print("Fighting Hens")
 					combat_logic.combat(character, "hen")
 				elif character['Current Level'] == 2:
 					print("Fighting Silkies")
