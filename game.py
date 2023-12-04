@@ -16,10 +16,11 @@ def make_board():
 	                         column in range(12, 17)})
 	board_dictionary.update({(row, column): f'You\'re in room ({row}, {column}); It is empty.' for row in range(1,
 	                                                                                                            4) for
-	                         column in range(18, 21)})
+	                         column in range(18, 20)})
 	board_dictionary.update({(2, 5): f'You\'re in room ({2}, {5}): There is a door here.'})
 	board_dictionary.update({(2, 11): f'You\'re in room ({2}, {11}): There is a door here.'})
 	board_dictionary.update({(2, 17): f'You\'re in room ({2}, {17}): There is a door here.'})
+	board_dictionary.update({(2, 20): f'You\'re in room ({2}, {20}): This is the end of the game.'})
 
 	# for row in range(5):
 	# 	for col in range(21):
@@ -31,7 +32,7 @@ def make_board():
 
 def make_character():
 	print("Character made")
-	return {"X-coordinate": 0, "Y-coordinate": 0, "CurrentHP": 25, "MaxHP": 25, "MaxMana": 100, "CurrentMana": 100,
+	return {"X-coordinate": 0, "Y-coordinate": 0, "Current HP": 25, "MaxHP": 25, "MaxMana": 100, "CurrentMana": 100,
 	        "Exp": 0, "CurrentLevel": 1}
 
 
@@ -249,6 +250,7 @@ def game():
 	board = make_board()
 	character = make_character()
 	achieved_goal = False
+	# Put game story function here (just prints out the story)
 	while not achieved_goal and character["Current HP"] > 0:
 		describe_current_location(board, character)
 		direction = get_user_choice()
@@ -256,21 +258,20 @@ def game():
 		if valid_move:
 			move_character(character, direction)
 			describe_current_location(board, character)
+		#       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
+		# 		there_is_a_challenger = check_for_foes()
+		# 		if there_is_a_challenger: (challenge)
+		#           (new version from sample code flow)
+		#           execute_challenge_protocol(character)
+		#           if character_has_leveled():
+		# 	            execute_glow_up_protocol()
+		#           (remove the below eventually as the above shows new if statement)
+		# 			guessing_game(character)
+		#       (add board to achieved_goal, like so: achieved_goal = check_if_goal_attained(board, character))
+		# 		achieved_goal = check_if_goal_attained(character)
 		else:
 			print("Nice try, but that direction isn't valid! Please try again.")
 
-
-#       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
-# 		there_is_a_challenger = check_for_foes()
-# 		if there_is_a_challenger: (challenge)
-#           (new version from sample code flow)
-#           execute_challenge_protocol(character)
-#           if character_has_leveled():
-# 	            execute_glow_up_protocol()
-#           (remove the below eventually as the above shows new if statement)
-# 			guessing_game(character)
-#       (add board to achieved_goal, like so: achieved_goal = check_if_goal_attained(board, character))
-# 		achieved_goal = check_if_goal_attained(character)
 
 #
 # if character["Current HP"] > 0:
