@@ -27,9 +27,15 @@ def make_board():
 
 def make_character():
 	print("Character made")
-	return {"X-coordinate": 19, "Y-coordinate": 2, "Current HP": 25, "Max HP": 25, "Max Mana": 100, "Current Mana":
-		100,
-	        "Exp": 0, "Current Level": 1}
+	return {
+		"X-coordinate": 0,
+		"Y-coordinate": 0,
+		"Current HP": 25,
+		"Max HP": 25,
+		"Max Mana": 100,
+		"Current Mana": 100,
+		"Exp": 0,
+		"Current Level": 1}
 
 
 def make_hen():
@@ -41,11 +47,11 @@ def make_silkie():
 
 
 def make_rooster():
-	return {"Current HP": 50, "Max HP": 50, "Exp Value": 5}
+	return {"Current HP": 50, "Max HP": 50, "Exp Value": 0}
 
 
 def make_sanders():
-	return {"Current HP": 100, "Max HP": 100, "Exp Value": 100}
+	return {"Current HP": 100, "Max HP": 100, "Exp Value": 0}
 
 
 def holy_blast(character):
@@ -216,14 +222,14 @@ def move_character(character, direction):
 
 
 def check_if_goal_attained(character):
-	print("You have won the game!")
 	return (character["X-coordinate"], character["Y-coordinate"]) == (20, 2)
 
 
-# def check_for_foes():
-#
-# 	return random.randint(1, 4) == 1
-#
+def check_for_foes():
+	return True
+	# return random.randint(1, 4) == 1
+
+
 #
 # def guessing_game(character):
 #
@@ -255,25 +261,39 @@ def game():
 		if valid_move:
 			move_character(character, direction)
 			describe_current_location(board, character)
-			#       (new version from sample code flow) there_is_a_challenge = check_for_challenges()
-			# 		there_is_a_challenger = check_for_foes()
-			# 		if there_is_a_challenger: (challenge)
-			#           (new version from sample code flow)
-			#           execute_challenge_protocol(character)
-			#           if character_has_leveled():
-			# 	            execute_glow_up_protocol()
-			#           (remove the below eventually as the above shows new if statement)
-			# 			guessing_game(character)
-			#       (add board to achieved_goal, like so: achieved_goal = check_if_goal_attained(board, character))
+			if (character["X-coordinate"], character["Y-coordinate"]) == (19, 2):
+				print("Fighting Sanders!")
+			there_is_a_challenger = check_for_foes()
+			if there_is_a_challenger:
+				if character['Current Level'] == 1:
+					print("Fighting Hens")
+				elif character['Current Level'] == 2:
+					print("Fighting Silkies")
+				else:
+					print("Fighting Roosters")
+				# If level 1:
+				#   combat(character, hen)
+				# elif level 2:
+				#   combat(character, silkie)
+				# else:
+				#   combat(character, rooster)
+				print(f"The current character level is: Level {character['Current Level']}")
+
+			#   if character_has_leveled():
+			#       execute_glow_up_protocol()
 			achieved_goal = check_if_goal_attained(character)
 		else:
+			# Add story elements to this, from planning documents
 			print("Nice try, but that direction isn't valid! Please try again.")
 
 	if character["Current HP"] > 0:
+		# Add story elements to this, from planning documents
 		print("Congrats on getting to the end! You win!")
 		return None
 	else:
+		# Add story elements to this, from planning documents
 		print("Sorry you didn't survive the game! Better luck next time.")
+
 
 def main():
 	"""
