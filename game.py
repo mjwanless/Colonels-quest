@@ -2,6 +2,7 @@
 Malcolm Wanless
 A01365553
 """
+import itertools
 
 import story
 import random
@@ -12,22 +13,8 @@ import combat_logic
 
 
 def check_for_foes():
+	# Change this to a different value
 	return True
-
-#
-# def guessing_game(character):
-#
-# 	user_input = int(input("I'm attacking you! Guess a number between 1 and 5, inclusive: "))
-#
-# 	enemy_number = random.randint(1, 5)
-#
-# 	if user_input == enemy_number:
-# 		print("Correct! Please continue on.")
-# 	else:
-# 		print("Incorrect! You take one damage! Please continue.")
-#
-# 		character["Current HP"] -= 1
-#
 
 
 def game():
@@ -54,10 +41,10 @@ def game():
 					combat_logic.combat(character, "hen")
 				elif character['Current Level'] == 2:
 					print("Fighting Silkies")
-					combat_logic.combat(character, "silkie")
+					combat_logic.combat(character, itertools.cycle(["hen", "silkie"]))
 				else:
 					print("Fighting Roosters")
-					combat_logic.combat(character, "rooster")
+					combat_logic.combat(character, itertools.cycle(["hen", "silkie", "rooster"]))
 			#   Here, you should have something like:
 			#   if character["Exp"] >= character["Exp Needed"]:
 			#       level_up()
