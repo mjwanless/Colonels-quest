@@ -4,6 +4,13 @@ import time
 import generators
 import spells
 
+def level_up(character):
+	character["Current Level"] += 1
+	character["Exp"] = 0
+	character["Exp Needed"] = 15
+	character["Max HP"] += 15
+	character["Max Mana"] += 25
+	spells.balance(character)
 
 def combat(character, enemy):
 	if enemy == "hen":
@@ -78,17 +85,12 @@ def combat(character, enemy):
 			spells.post_fight_heal(character)
 			character["Exp"] += enemy["Exp Value"]
 			print(f"You've gained {enemy['Exp Value']} xp. You have {character['Exp']} xp")
-
-			# Move this to outside of the combat function (look at the sample outline from chris)
-			if character["Current Level"] < 3:
-				if character["Exp"] >= character["Exp Needed"]:
-					character["Current Level"] += 1
-					character["Exp"] = 0
-					character["Exp Needed"] = 15
-					character["Max HP"] += 15
-					character["Max Mana"] += 25
-					spells.balance(character)
 			break
+			# Move this to outside of the combat function (look at the sample outline from chris)
+			# if character["Current Level"] < 3:
+			# 	if character["Exp"] >= character["Exp Needed"]:
+			#
+			# break
 
 		print(f"You've regenerated {7 + character['Current Level'] * 3} mana.")
 		spells.regen_mana(character)
