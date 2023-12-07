@@ -32,9 +32,6 @@ def make_character():
 		"Current Level": 1}
 
 
-
-
-
 def make_hen():
 	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 10}
 
@@ -48,5 +45,4 @@ def make_rooster():
 
 
 def make_sanders():
-	return {"name": "Colonel Sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}
-
+	return {"name": "sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}

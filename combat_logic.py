@@ -12,7 +12,7 @@ def combat(character, enemy):
 		enemy = generators.make_silkie()
 	elif enemy == "rooster":
 		enemy = generators.make_rooster()
-	else:
+	elif enemy == "sanders":
 		enemy = generators.make_sanders()
 
 	peck_cooldown = 0
@@ -99,6 +99,9 @@ def combat(character, enemy):
 
 		time.sleep(1)
 
+		# ==================================================================================
+		# ==================================================================================
+		# ==================================================================================
 		if enemy["name"] == "hen":
 			while True:
 				abilities = random.choice(("peck", "scratch"))
@@ -115,21 +118,128 @@ def combat(character, enemy):
 					break
 
 			if peck_cooldown > 0:
-				peck_cooldown += 1
+				peck_cooldown -= 1
+
+		# ==================================================================================
+		# ==================================================================================
+		# ==================================================================================
+		if enemy["name"] == "silkie":
+			while True:
+				abilities = random.choice(("peck", "scratch", "feather", "plumage"))
+				if abilities == "peck" and not peck_cooldown:
+					damage = spells.peck()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with peck!")
+					peck_cooldown = 2
+					break
+				if abilities == "scratch":
+					damage = spells.peck()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with scratch!")
+					break
+				if abilities == "feather" and not feather_throw_cooldown:
+					damage = spells.feather_throw()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with feather throw!")
+					feather_throw_cooldown = 3
+					break
+				if abilities == "plumage" and not plumage_cooldown:
+					heal = spells.plumage()
+					enemy["Current HP"] -= heal
+					print(f"{enemy['name']} healed {heal} damage to themselves with plumage!")
+					plumage_cooldown = 2
+					break
+
+			if peck_cooldown > 0:
+				peck_cooldown -= 1
+			if feather_throw_cooldown > 0:
+				peck_cooldown -= 1
+			if plumage_cooldown > 0:
+				plumage_cooldown -= 1
+
+		# ==================================================================================
+		# ==================================================================================
+		# ==================================================================================
+		if enemy["name"] == "rooster":
+			while True:
+				abilities = random.choice(("peck", "scratch", "feather", "plumage", "talons"))
+				if abilities == "peck" and not peck_cooldown:
+					damage = spells.peck()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with peck!")
+					peck_cooldown = 2
+					break
+				if abilities == "scratch":
+					damage = spells.peck()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with scratch!")
+					break
+				if abilities == "feather" and not feather_throw_cooldown:
+					damage = spells.feather_throw()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with feather throw!")
+					feather_throw_cooldown = 3
+					break
+				if abilities == "plumage" and not plumage_cooldown:
+					heal = spells.plumage()
+					enemy["Current HP"] -= heal
+					print(f"{enemy['name']} healed {heal} damage to themselves with plumage!")
+					plumage_cooldown = 2
+					break
+				if abilities == "talons" and not talons_cooldown:
+					damage = spells.talons()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with talons!")
+					plumage_cooldown = 4
+					break
+
+			if peck_cooldown > 0:
+				peck_cooldown -= 1
+			if feather_throw_cooldown > 0:
+				peck_cooldown -= 1
+			if plumage_cooldown > 0:
+				plumage_cooldown -= 1
+			if talons_cooldown > 0:
+				talons_cooldown -= 1
+
+		# ==================================================================================
+		# ==================================================================================
+		# ==================================================================================
+		if enemy["name"] == "sanders":
+			while True:
+				abilities = random.choice(("deep", "herbs", "breading", "flavour"))
+				if abilities == "deep":
+					damage = spells.deep_fry()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with Deep fry!")
+					break
+				if abilities == "herbs" and not herbs_and_spices_cooldown:
+					damage = spells.herbs_and_spices()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you 11 herbs and spices!")
+					peck_cooldown = 2
+					break
+				if abilities == "breading" and not breading_cooldown:
+					heal = spells.breading()
+					enemy["Current HP"] -= heal
+					print(f"{enemy['name']} healed {heal} damage to themselves with breading!")
+					feather_throw_cooldown = 4
+					break
+				if abilities == "flavour" and not flavour_blast_cooldown:
+					damage = spells.flavour_blast()
+					character["Current HP"] -= damage
+					print(f"{enemy['name']} did {damage} damage to you with flavour blast!")
+					plumage_cooldown = 3
+					break
+
+			if herbs_and_spices_cooldown > 0:
+				herbs_and_spices_cooldown -= 1
+			if breading_cooldown > 0:
+				breading_cooldown -= 1
+			if flavour_blast_cooldown > 0:
+				flavour_blast_cooldown -= 1
 
 		if character["Current HP"] <= 0:
 			print(f"Sorry; You've died to a {enemy['name']}")
 
 		time.sleep(1)
-
-
-def hen_combat(character):
-	enemy = generators.make_hen()
-	# Scratch = every turn
-	# peck = 1 turn cooldown (program 2)
-
-	peck_cooldown = 0
-# if peck chosen
-# set cooldown to max
-# Every combat loop, at end, reduce cooldown, after combats
-# Set cooldown one higher than desired since it will reduce each round, at end
