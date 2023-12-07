@@ -20,3 +20,4 @@ def story_end_of_game():
 
 def story_character_death():
 	print("You died! This is the story death call!")
+
