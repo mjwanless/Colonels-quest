@@ -17,5 +17,6 @@ def story_sanders():
 def story_end_of_game():
 	print("This is the story send of game")
 
+
 def story_character_death():
-	print("You died!")
+	print("You died! This is the story death call!")

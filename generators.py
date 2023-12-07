@@ -21,19 +21,19 @@ def make_board():
 def make_character():
 	print("Character made")
 	return {
-		"X-coordinate": 0,
-		"Y-coordinate": 0,
-		"Current HP": 20,
-		"Max HP": 20,
+		"X-coordinate": 18,
+		"Y-coordinate": 2,
+		"Current HP": 5,
+		"Max HP": 5,
 		"Current Mana": 100,
 		"Max Mana": 100,
 		"Exp": 0,
-		"Exp Needed": 15,
-		"Current Level": 1}
+		"Exp Needed": 20,
+		"Current Level": 3}
 
 
 def make_hen():
-	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 10}
+	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 8}
 
 
 def make_silkie():
@@ -41,7 +41,7 @@ def make_silkie():
 
 
 def make_rooster():
-	return {"name": "rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 0}
+	return {"name": "rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 5}
 
 
 def make_sanders():

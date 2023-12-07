@@ -12,6 +12,25 @@ def level_up(character):
 	character["Max Mana"] += 25
 	spells.balance(character)
 
+def level_up(character):
+	print("You've leveled up!")
+	# time.sleep(1)
+	character["Current Level"] += 1
+	character["Exp"] = 0
+	character["Exp Needed"] += 20
+	character["Max HP"] += 15
+	character["Current HP"] = character["Max HP"]
+	character["Max Mana"] += 25
+	character["Current Mana"] = character["Max Mana"]
+	spells.balance(character)
+	print(f"""
+	=====================================================================
+	Character Stats: HP: {character['Current HP']}/{character['Max HP']}
+					 Mana: {character['Current Mana']}/{character['Max Mana']}
+	=====================================================================		
+	""")
+
+
 def combat(character, enemy):
 	if enemy == "hen":
 		enemy = generators.make_hen()
@@ -41,7 +60,7 @@ def combat(character, enemy):
 		Enemy Stats:     HP {enemy['Current HP']}/{enemy['Max HP']}
 		=====================================================================		
 		""")
-		time.sleep(1)
+		# time.sleep(1)
 		while True:
 			print(f"""
 			Your turn: What would you like to do? Type a number to cast that spell.
@@ -61,7 +80,9 @@ def combat(character, enemy):
 			except ValueError:
 				print("Invalid input. Please enter a valid integer.")
 
+		# ========================================================================
 		# Need to check for if there is enough mana and to cast something else if not
+		# ===========================================================================
 		if user_choice == 1:
 			damage = spells.holy_blast(character)
 			enemy["Current HP"] -= damage
@@ -79,7 +100,7 @@ def combat(character, enemy):
 			character["Current HP"] += heal
 			print(f"You've healed {heal} HP.")
 
-		time.sleep(1)
+		# time.sleep(1)
 		if enemy["Current HP"] <= 0:
 			print(f"You've defeated the {enemy['name']}! ")
 			spells.post_fight_heal(character)
@@ -99,7 +120,7 @@ def combat(character, enemy):
 
 		print("It's now the enemy's turn.")
 
-		time.sleep(1)
+		# time.sleep(1)
 
 		# ==================================================================================
 		# ==================================================================================
@@ -147,7 +168,7 @@ def combat(character, enemy):
 					break
 				if abilities == "plumage" and not plumage_cooldown:
 					heal = spells.plumage()
-					enemy["Current HP"] -= heal
+					enemy["Current HP"] += heal
 					print(f"{enemy['name']} healed {heal} damage to themselves with plumage!")
 					plumage_cooldown = 2
 					break
@@ -184,7 +205,7 @@ def combat(character, enemy):
 					break
 				if abilities == "plumage" and not plumage_cooldown:
 					heal = spells.plumage()
-					enemy["Current HP"] -= heal
+					enemy["Current HP"] += heal
 					print(f"{enemy['name']} healed {heal} damage to themselves with plumage!")
 					plumage_cooldown = 2
 					break
@@ -223,9 +244,9 @@ def combat(character, enemy):
 					break
 				if abilities == "breading" and not breading_cooldown:
 					heal = spells.breading()
-					enemy["Current HP"] -= heal
+					enemy["Current HP"] += heal
 					print(f"{enemy['name']} healed {heal} damage to themselves with breading!")
-					feather_throw_cooldown = 4
+					breading_cooldown = 4
 					break
 				if abilities == "flavour" and not flavour_blast_cooldown:
 					damage = spells.flavour_blast()
@@ -244,4 +265,4 @@ def combat(character, enemy):
 		if character["Current HP"] <= 0:
 			print(f"Sorry; You've died to a {enemy['name']}")
 
-		time.sleep(1)
+		# time.sleep(1)

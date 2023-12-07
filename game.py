@@ -21,6 +21,11 @@ def game():
 	"""
 	Drive the game
 	"""
+	# enemy_generator_2 = itertools.cycle(["hen", "silkie", "rooster"])
+	enemy_generator_2 = itertools.cycle(["rooster"])
+	# enemy_generator_1 = itertools.cycle(["hen", "silkie"])
+	enemy_generator_1 = itertools.cycle(["silkie"])
+
 	board = generators.make_board()
 	character = generators.make_character()
 	achieved_goal = False
@@ -42,16 +47,18 @@ def game():
 					if character['Current Level'] == 1:
 						combat_logic.combat(character, "hen")
 					elif character['Current Level'] == 2:
-						combat_logic.combat(character, itertools.cycle(["hen", "silkie"]))
+						enemy = next(enemy_generator_1)
+						combat_logic.combat(character, enemy)
 					else:
-						combat_logic.combat(character, itertools.cycle(["hen", "silkie", "rooster"]))
-				if character["Current Level"] < 4:
+						enemy = next(enemy_generator_2)
+						combat_logic.combat(character, enemy)
+				if character["Current Level"] < 3:
 					if character["Exp"] >= character["Exp Needed"]:
 						combat_logic.level_up(character)
-					if character["Current Level"] == 2:
-						story.story_level_2()
-					if character["Current Level"] == 3:
-						story.story_level_3()
+						if character["Current Level"] == 2:
+							story.story_level_2()
+						if character["Current Level"] == 3:
+							story.story_level_3()
 				achieved_goal = movement.check_if_goal_attained(character)
 			else:
 				break
@@ -60,7 +67,6 @@ def game():
 
 	if character["Current HP"] > 0:
 		story.story_end_of_game()
-		print("Congrats on getting to the end! You win!")
 		return None
 	else:
 		story.story_character_death()
