@@ -14,17 +14,15 @@ import combat_logic
 
 def check_for_foes():
 	# Change this to a different value
-	return True
+	return random.randint(1, 3) == 1
 
 
 def game():
 	"""
 	Drive the game
 	"""
-	# enemy_generator_2 = itertools.cycle(["hen", "silkie", "rooster"])
-	enemy_generator_2 = itertools.cycle(["rooster"])
-	# enemy_generator_1 = itertools.cycle(["hen", "silkie"])
-	enemy_generator_1 = itertools.cycle(["silkie"])
+	enemy_generator_2 = itertools.cycle(["silkie", "rooster"])
+	enemy_generator_1 = itertools.cycle(["hen", "silkie"])
 
 	board = generators.make_board()
 	character = generators.make_character()
@@ -37,10 +35,20 @@ def game():
 		valid_move = movement.validate_move(board, character, direction)
 		if valid_move:
 			movement.move_character(character, direction)
-			movement.describe_current_location(board, character)
+			if (character["Y-coordinate"], character["X-coordinate"]) == (2, 5):
+				if character["Current Level"] < 2:
+					print("You cannot go that way; The door is locked.")
+					character["X-coordinate"] = 4
+					character["Y-coordinate"] = 2
+			if (character["Y-coordinate"], character["X-coordinate"]) == (2, 11):
+				if character["Current Level"] < 3:
+					print("You cannot go that way; The door is locked.")
+					character["X-coordinate"] = 10
+					character["Y-coordinate"] = 2
 			if (character["X-coordinate"], character["Y-coordinate"]) == (19, 2):
 				story.story_sanders()
 				combat_logic.combat(character, "sanders")
+				break
 			if not (character["X-coordinate"], character["Y-coordinate"]) == (20, 2):
 				there_is_a_challenger = check_for_foes()
 				if there_is_a_challenger:
@@ -60,6 +68,7 @@ def game():
 						if character["Current Level"] == 3:
 							story.story_level_3()
 				achieved_goal = movement.check_if_goal_attained(character)
+				movement.describe_current_location(board, character)
 			else:
 				break
 		else:

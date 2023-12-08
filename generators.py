@@ -32,19 +32,19 @@ def enemy_generator(enemy):
 def make_character():
 	print("Character made")
 	return {
-		"X-coordinate": 18,
+		"X-coordinate": 0,
 		"Y-coordinate": 2,
-		"Current HP": 5000,
-		"Max HP": 5000,
-		"Current Mana": 0,
+		"Current HP": 50,
+		"Max HP": 50,
+		"Current Mana": 100,
 		"Max Mana": 100,
 		"Exp": 0,
-		"Exp Needed": 20,
-		"Current Level": 3}
+		"Exp Needed": 15,
+		"Current Level": 1}
 
 
 def make_hen():
-	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 8}
+	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 3}
 
 
 def make_silkie():
