@@ -44,16 +44,16 @@ def make_character():
 
 
 def make_hen():
-	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 3}
+	return {"name": "Hen", "Current HP": 15, "Max HP": 15, "Exp Value": 3}
 
 
 def make_silkie():
-	return {"name": "silkie", "Current HP": 30, "Max HP": 30, "Exp Value": 3}
+	return {"name": "Silkie", "Current HP": 30, "Max HP": 30, "Exp Value": 3}
 
 
 def make_rooster():
-	return {"name": "rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 5}
+	return {"name": "Rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 5}
 
 
 def make_sanders():
-	return {"name": "sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}
+	return {"name": "Sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}

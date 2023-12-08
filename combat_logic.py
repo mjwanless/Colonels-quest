@@ -46,20 +46,24 @@ def combat(character, enemy):
 
 	while character["Current HP"] > 0 and enemy["Current HP"] > 0:
 		print(f"""
-		=====================================================================
-		Character Stats: HP: {character['Current HP']}/{character['Max HP']}
-						 Mana: {character['Current Mana']}/{character['Max Mana']}
-		Enemy Stats:     HP {enemy['Current HP']}/{enemy['Max HP']}
-		=====================================================================		
+		==================================
+		Character Stats:        HP: {character['Current HP']}/{character['Max HP']}
+						        Mana: {character['Current Mana']}/{character['Max Mana']}
+		----------------------------------
+		{enemy['name']} Stats:  HP {enemy['Current HP']}/{enemy['Max HP']}
+		==================================	
 		""")
 
 		while True:
 			print(f"""
+			================================================================================
 			Your turn: What would you like to do? Type a number to cast that spell.
-			1. Holy Blast -> ({character["Current Level"]} * d6), -0 Mana
-			2. Smite -> ({character["Current Level"]} * d10), -15 Mana
-			3. Judgment -> ({character["Current Level"]} * (0, 4, or 8))), -30 Mana
-			4. Heal -> ({character["Current Level"]} * (3 - 10))), -20 Mana
+			
+			1. Holy Blast  |  ({character["Current Level"]} * d6)             | Cost: 0 Mana
+			2. Smite       |  ({character["Current Level"]} * d10)            | Cost: 15 Mana
+			3. Judgment    |  ({character["Current Level"]} * (0, 4, or 8)))  | Cost: 30 Mana
+			4. Heal        |  ({character["Current Level"]} * (3 - 10)))      | Cost: 20 Mana
+			================================================================================
 			""")
 
 			try:
