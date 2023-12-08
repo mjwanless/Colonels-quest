@@ -18,14 +18,25 @@ def make_board():
 	return board_dictionary
 
 
+def enemy_generator(enemy):
+	if enemy == "hen":
+		return make_hen()
+	elif enemy == "silkie":
+		return make_silkie()
+	elif enemy == "rooster":
+		return make_rooster()
+	elif enemy == "sanders":
+		return make_sanders()
+
+
 def make_character():
 	print("Character made")
 	return {
 		"X-coordinate": 18,
 		"Y-coordinate": 2,
-		"Current HP": 5,
-		"Max HP": 5,
-		"Current Mana": 100,
+		"Current HP": 5000,
+		"Max HP": 5000,
+		"Current Mana": 0,
 		"Max Mana": 100,
 		"Exp": 0,
 		"Exp Needed": 20,

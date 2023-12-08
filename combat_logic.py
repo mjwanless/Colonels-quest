@@ -4,13 +4,6 @@ import time
 import generators
 import spells
 
-def level_up(character):
-	character["Current Level"] += 1
-	character["Exp"] = 0
-	character["Exp Needed"] = 15
-	character["Max HP"] += 15
-	character["Max Mana"] += 25
-	spells.balance(character)
 
 def level_up(character):
 	print("You've leveled up!")
@@ -52,7 +45,6 @@ def combat(character, enemy):
 	print(f"Combat is happening between the character and a {enemy['name']}.")
 
 	while character["Current HP"] > 0 and enemy["Current HP"] > 0:
-		# We need to print some character and enemy details
 		print(f"""
 		=====================================================================
 		Character Stats: HP: {character['Current HP']}/{character['Max HP']}
@@ -60,7 +52,7 @@ def combat(character, enemy):
 		Enemy Stats:     HP {enemy['Current HP']}/{enemy['Max HP']}
 		=====================================================================		
 		""")
-		# time.sleep(1)
+
 		while True:
 			print(f"""
 			Your turn: What would you like to do? Type a number to cast that spell.
@@ -74,7 +66,15 @@ def combat(character, enemy):
 				user_choice = int(input("Make a choice from the above list: "))
 
 				if 1 <= user_choice <= 4:
-					break
+					if (
+						(user_choice == 1) or
+						(user_choice == 2 and character["Current Mana"] >= 15) or
+						(user_choice == 3 and character["Current Mana"] >= 30) or
+						(user_choice == 4 and character["Current Mana"] >= 20)
+					):
+						break
+					else:
+						print("Not enough mana to cast the selected spell. Please choose another.")
 				else:
 					print("That's not a valid value; Please enter an int between 1 and 4, inclusive.")
 			except ValueError:
@@ -87,7 +87,7 @@ def combat(character, enemy):
 			damage = spells.holy_blast(character)
 			enemy["Current HP"] -= damage
 			print(f"You've done {damage} damage to {enemy['name']}")
-		elif user_choice == 2:
+		elif user_choice == 2 and character["Current Mana"] > 15:
 			damage = spells.smite(character)
 			enemy["Current HP"] -= damage
 			print(f"You've done {damage} damage to {enemy['name']}")
@@ -107,11 +107,6 @@ def combat(character, enemy):
 			character["Exp"] += enemy["Exp Value"]
 			print(f"You've gained {enemy['Exp Value']} xp. You have {character['Exp']} xp")
 			break
-			# Move this to outside of the combat function (look at the sample outline from chris)
-			# if character["Current Level"] < 3:
-			# 	if character["Exp"] >= character["Exp Needed"]:
-			#
-			# break
 
 		print(f"You've regenerated {7 + character['Current Level'] * 3} mana.")
 		spells.regen_mana(character)
@@ -265,4 +260,4 @@ def combat(character, enemy):
 		if character["Current HP"] <= 0:
 			print(f"Sorry; You've died to a {enemy['name']}")
 
-		# time.sleep(1)
+	# time.sleep(1)
