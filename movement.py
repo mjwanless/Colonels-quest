@@ -110,6 +110,35 @@ def validate_move(board, character, direction):
 
 
 def move_character(character, direction):
+    """
+    Move the character to a new location on the board.
+
+    A function that takes in a character dictionary and a direction value. The character's X, or Y coordinate values
+    are modified by +1 or -1, depending on which direciton value is passed into the function.
+
+    :param character: a dictionary containing the current character object
+    :param direction: an integer, between 1 and 4, inclusive, that represents the movement direction
+    :precondition: character is a dictionary with location data, and a health key:value pair
+    :precondition: direction is an integer between 1 and 4
+    :postcondition: the character object has a modified X, or Y coordinate value that indicates their new position on
+    the board
+
+    >>> character_1 = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
+    >>> direction_1 = 2
+    >>> move_character(character_1, direction_1)
+    >>> print(character_1)
+    {'X-coordinate': 1, 'Y-coordinate': 0, 'Current HP': 5}
+    >>> character_2 = {'X-coordinate': 2, 'Y-coordinate': 3, 'Current HP': 5}
+    >>> direction_2 = 3
+    >>> move_character(character_2, direction_2)
+    >>> print(character_2)
+    {'X-coordinate': 2, 'Y-coordinate': 4, 'Current HP': 5}
+    >>> character_3 = {'X-coordinate': 1, 'Y-coordinate': 3, 'Current HP': 5}
+    >>> direction_3 = 1
+    >>> move_character(character_3, direction_3)
+    >>> print(character_3)
+    {'X-coordinate': 1, 'Y-coordinate': 2, 'Current HP': 5}
+    """
     if direction == 1:
         character["Y-coordinate"] -= 1
     elif direction == 2:
@@ -121,4 +150,24 @@ def move_character(character, direction):
 
 
 def check_if_goal_attained(character):
+    """
+    Check to see if the character has reached the goal, or the designated spot on the board.
+
+    A function that takes in a character object, and checks the goal tuple value of the map goal coordinates against
+    the current value of the character's X, and Y coordinate values. If so, return a True boolean value. If not,
+    return False.
+
+    :param character: a dictionary containing the current character object
+    :precondition: character is a dictionary with location data, and a health key:value pair
+    :postcondition: the return value is a boolean that represents whether the character has reached a specific spot on
+    the board
+    :return: a boolean value representing whether the character has reached the end goal
+
+    >>> character_1 = {'X-coordinate': 1, 'Y-coordinate': 1, 'Current HP': 5}
+    >>> check_if_goal_attained(character_1)
+    False
+    >>> character_2 = {'X-coordinate': 20, 'Y-coordinate': 2, 'Current HP': 5}
+    >>> check_if_goal_attained(character_2)
+    True
+    """
     return (character["X-coordinate"], character["Y-coordinate"]) == (20, 2)
