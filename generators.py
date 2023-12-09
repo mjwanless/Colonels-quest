@@ -35,6 +35,26 @@ def make_board():
 
 
 def enemy_generator(enemy):
+	"""
+    Generate an enemy, based on the input string name.
+
+	:param enemy: a string representing the enemy's name
+	:precondition: enemy is a string
+	:postcondition: the returned values is an object, based on the string input name
+	:return: a dictionary that represents an enemy character
+
+    >>> enemy_generator("hen")
+    {'name': 'hen', 'Current HP': 15, 'Max HP': 15, 'Exp Value': 2}
+
+    >>> enemy_generator("silkie")
+    {'name': 'silkie', 'Current HP': 30, 'Max HP': 30, 'Exp Value': 3}
+
+    >>> enemy_generator("rooster")
+    {'name': 'rooster', 'Current HP': 50, 'Max HP': 50, 'Exp Value': 5}
+
+    >>> enemy_generator("sanders")
+    {'name': 'sanders', 'Current HP': 100, 'Max HP': 100, 'Exp Value': 0}
+    """
 	if enemy == "hen":
 		return make_hen()
 	elif enemy == "silkie":
