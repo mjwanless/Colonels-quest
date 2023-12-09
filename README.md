@@ -19,4 +19,13 @@ mjwanless
 
 ## Any important comments you'd like to make about your work:
 
-Not at the moment
+Hey Chris;
+
+Not sure if you'll look at the readme, but here is the logic behind my design:
+
+I wanted to take a goofy story and craft a simple, traditional turn-based RPG around that, within the realm of the 
+project. Hopefully, you find it fun. Instead of balancing the game toward punishing, there are a decent amount of story 
+parts, so I didn't want this to take forever. Instead, I erred towards too easy, since this project is about showing 
+mechanics rather than a game you can play for weeks. 
+
+Hopefully I've done that here. Have fun!
