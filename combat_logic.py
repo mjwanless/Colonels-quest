@@ -50,7 +50,7 @@ def combat(character, enemy):
 		Character Stats:        HP: {character['Current HP']}/{character['Max HP']}
 						        Mana: {character['Current Mana']}/{character['Max Mana']}
 		----------------------------------
-		{enemy['name']} Stats:  HP {enemy['Current HP']}/{enemy['Max HP']}
+		{enemy['name']} Stats:              HP {enemy['Current HP']}/{enemy['Max HP']}
 		==================================	
 		""")
 

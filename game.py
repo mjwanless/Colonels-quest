@@ -14,8 +14,8 @@ import combat_logic
 
 def check_for_foes():
 	# Change this to a different value
-	return random.randint(1, 3) == 1
-
+	# return random.randint(1, 3) == 1
+	return True
 
 def game():
 	"""
@@ -37,12 +37,12 @@ def game():
 			movement.move_character(character, direction)
 			if (character["Y-coordinate"], character["X-coordinate"]) == (2, 5):
 				if character["Current Level"] < 2:
-					print("You cannot go that way; The door is locked.")
+					print("You cannot go that way; The barrier is locked.")
 					character["X-coordinate"] = 4
 					character["Y-coordinate"] = 2
 			if (character["Y-coordinate"], character["X-coordinate"]) == (2, 11):
 				if character["Current Level"] < 3:
-					print("You cannot go that way; The door is locked.")
+					print("You cannot go that way; The barrier is locked.")
 					character["X-coordinate"] = 10
 					character["Y-coordinate"] = 2
 			if (character["X-coordinate"], character["Y-coordinate"]) == (19, 2):
