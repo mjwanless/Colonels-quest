@@ -14,9 +14,14 @@ import combat_logic
 
 
 def check_for_foes():
-	# Change this to a different value
-	# return random.randint(1, 3) == 1
-	return True
+	"""
+	Determine if a randomly-generated number is of a particular value and return the boolean to simulate a random
+	combat encounter.
+
+	:postcondition: returns a boolean to simulate the probability of running into an enemy
+	:return: a boolean value
+	"""
+	return random.randint(1, 3) == 1
 
 
 def game():
@@ -84,7 +89,7 @@ def game():
 
 
 def main():
-# def main(_):
+	# def main(_):
 	"""
 	Drive the program
 	"""
@@ -96,4 +101,4 @@ if __name__ == "__main__":
     Call the main function if current file is called directly
 	"""
 	main()
-	# main(sys.argv[0])
+# main(sys.argv[0])

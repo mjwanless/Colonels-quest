@@ -24,15 +24,62 @@ def level_up(character):
 	""")
 
 
-def combat(character, enemy):
+def generate_enemy(enemy):
 	if enemy == "hen":
-		enemy = generators.make_hen()
+		return generators.make_hen()
 	elif enemy == "silkie":
-		enemy = generators.make_silkie()
+		return generators.make_silkie()
 	elif enemy == "rooster":
-		enemy = generators.make_rooster()
+		return generators.make_rooster()
 	elif enemy == "sanders":
-		enemy = generators.make_sanders()
+		return generators.make_sanders()
+
+
+def print_stats(character, enemy):
+	print(f"""
+			==================================
+			Character Stats:        HP: {character['Current HP']}/{character['Max HP']}
+							        Mana: {character['Current Mana']}/{character['Max Mana']}
+			----------------------------------
+			{enemy['name']} Stats:              HP {enemy['Current HP']}/{enemy['Max HP']}
+			==================================	
+			""")
+
+
+def print_spells(character):
+	print(f"""
+	================================================================================
+	Your turn: What would you like to do? Type a number to cast that spell.
+
+	1. Holy Blast  |  ({character["Current Level"]} * d6)             | Cost: 0 Mana
+	2. Smite       |  ({character["Current Level"]} * d10)            | Cost: 15 Mana
+	3. Judgment    |  ({character["Current Level"]} * (0, 4, or 8)))  | Cost: 30 Mana
+	4. Heal        |  ({character["Current Level"]} * (3 - 10)))      | Cost: 20 Mana
+	================================================================================
+	""")
+
+
+def user_spell_choice(character, enemy, user_choice):
+	if user_choice == 1:
+		damage = spells.holy_blast(character)
+		enemy["Current HP"] -= damage
+		print(f"You've done {damage} damage to {enemy['name']}")
+	elif user_choice == 2 and character["Current Mana"] > 15:
+		damage = spells.smite(character)
+		enemy["Current HP"] -= damage
+		print(f"You've done {damage} damage to {enemy['name']}")
+	elif user_choice == 3:
+		damage = spells.judgment(character)
+		enemy["Current HP"] -= damage
+		print(f"You've done {damage} damage to {enemy['name']}")
+	elif user_choice == 4:
+		heal = spells.heal(character)
+		character["Current HP"] += heal
+		print(f"You've healed {heal} HP.")
+
+
+def combat(character, enemy):
+	enemy = generate_enemy(enemy)
 
 	peck_cooldown = 0
 	feather_throw_cooldown = 0
@@ -45,36 +92,20 @@ def combat(character, enemy):
 	print(f"Combat is happening between the character and a {enemy['name']}.")
 
 	while character["Current HP"] > 0 and enemy["Current HP"] > 0:
-		print(f"""
-		==================================
-		Character Stats:        HP: {character['Current HP']}/{character['Max HP']}
-						        Mana: {character['Current Mana']}/{character['Max Mana']}
-		----------------------------------
-		{enemy['name']} Stats:              HP {enemy['Current HP']}/{enemy['Max HP']}
-		==================================	
-		""")
+		print_stats(character, enemy)
 
 		while True:
-			print(f"""
-			================================================================================
-			Your turn: What would you like to do? Type a number to cast that spell.
-			
-			1. Holy Blast  |  ({character["Current Level"]} * d6)             | Cost: 0 Mana
-			2. Smite       |  ({character["Current Level"]} * d10)            | Cost: 15 Mana
-			3. Judgment    |  ({character["Current Level"]} * (0, 4, or 8)))  | Cost: 30 Mana
-			4. Heal        |  ({character["Current Level"]} * (3 - 10)))      | Cost: 20 Mana
-			================================================================================
-			""")
+			print_spells(character)
 
 			try:
 				user_choice = int(input("Make a choice from the above list: "))
 
 				if 1 <= user_choice <= 4:
 					if (
-						(user_choice == 1) or
-						(user_choice == 2 and character["Current Mana"] >= 15) or
-						(user_choice == 3 and character["Current Mana"] >= 30) or
-						(user_choice == 4 and character["Current Mana"] >= 20)
+							(user_choice == 1) or
+							(user_choice == 2 and character["Current Mana"] >= 15) or
+							(user_choice == 3 and character["Current Mana"] >= 30) or
+							(user_choice == 4 and character["Current Mana"] >= 20)
 					):
 						break
 					else:
@@ -84,25 +115,7 @@ def combat(character, enemy):
 			except ValueError:
 				print("Invalid input. Please enter a valid integer.")
 
-		# ========================================================================
-		# Need to check for if there is enough mana and to cast something else if not
-		# ===========================================================================
-		if user_choice == 1:
-			damage = spells.holy_blast(character)
-			enemy["Current HP"] -= damage
-			print(f"You've done {damage} damage to {enemy['name']}")
-		elif user_choice == 2 and character["Current Mana"] > 15:
-			damage = spells.smite(character)
-			enemy["Current HP"] -= damage
-			print(f"You've done {damage} damage to {enemy['name']}")
-		elif user_choice == 3:
-			damage = spells.judgment(character)
-			enemy["Current HP"] -= damage
-			print(f"You've done {damage} damage to {enemy['name']}")
-		elif user_choice == 4:
-			heal = spells.heal(character)
-			character["Current HP"] += heal
-			print(f"You've healed {heal} HP.")
+		user_spell_choice(character, enemy, user_choice)
 
 		# time.sleep(1)
 		if enemy["Current HP"] <= 0:
@@ -119,11 +132,6 @@ def combat(character, enemy):
 
 		print("It's now the enemy's turn.")
 
-		# time.sleep(1)
-
-		# ==================================================================================
-		# ==================================================================================
-		# ==================================================================================
 		if enemy["name"] == "hen":
 			while True:
 				abilities = random.choice(("peck", "scratch"))
@@ -142,9 +150,6 @@ def combat(character, enemy):
 			if peck_cooldown > 0:
 				peck_cooldown -= 1
 
-		# ==================================================================================
-		# ==================================================================================
-		# ==================================================================================
 		if enemy["name"] == "silkie":
 			while True:
 				abilities = random.choice(("peck", "scratch", "feather", "plumage"))
@@ -179,9 +184,6 @@ def combat(character, enemy):
 			if plumage_cooldown > 0:
 				plumage_cooldown -= 1
 
-		# ==================================================================================
-		# ==================================================================================
-		# ==================================================================================
 		if enemy["name"] == "rooster":
 			while True:
 				abilities = random.choice(("peck", "scratch", "feather", "plumage", "talons"))
@@ -224,9 +226,6 @@ def combat(character, enemy):
 			if talons_cooldown > 0:
 				talons_cooldown -= 1
 
-		# ==================================================================================
-		# ==================================================================================
-		# ==================================================================================
 		if enemy["name"] == "sanders":
 			while True:
 				abilities = random.choice(("deep", "herbs", "breading", "flavour"))
@@ -263,5 +262,3 @@ def combat(character, enemy):
 
 		if character["Current HP"] <= 0:
 			print(f"Sorry; You've died to a {enemy['name']}")
-
-	# time.sleep(1)
