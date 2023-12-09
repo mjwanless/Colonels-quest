@@ -4,6 +4,7 @@ A01365553
 """
 import itertools
 
+import sys
 import story
 import random
 import generators
@@ -16,6 +17,7 @@ def check_for_foes():
 	# Change this to a different value
 	# return random.randint(1, 3) == 1
 	return True
+
 
 def game():
 	"""
@@ -72,7 +74,7 @@ def game():
 			else:
 				break
 		else:
-			print("Nice try, but that direction isn't valid! Please try again.")
+			print("Nice try, but you've hit a wall! Please try a different direction.")
 
 	if character["Current HP"] > 0:
 		story.story_end_of_game()
@@ -82,6 +84,7 @@ def game():
 
 
 def main():
+# def main(_):
 	"""
 	Drive the program
 	"""
@@ -89,4 +92,8 @@ def main():
 
 
 if __name__ == "__main__":
+	"""
+    Call the main function if current file is called directly
+	"""
 	main()
+	# main(sys.argv[0])
