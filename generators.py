@@ -1,4 +1,7 @@
 def make_board():
+	"""
+	A function that generates the map for the game.
+	"""
 	board_dictionary = {
 		(row, column): f'You\'re in room ({row}, {column}); There is nothing but fine hardwood under your feet.'
 		for row in
