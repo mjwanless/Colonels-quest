@@ -57,6 +57,42 @@ def get_user_choice():
 
 
 def validate_move(board, character, direction):
+    """
+    Determine whether a direction will extend past the edges of the game board and prevent invalid movement by the
+    character if so.
+
+    A function that takes in three arguments: the game board, the character, and a direction. The function will
+    determine the current character's position on the board, and whether the passed in direction is a valid move for
+    that character to make. If the move is valid, return True. If not, return False.
+
+    :param board: a dictionary containing the current gameboard object
+    :param character: a dictionary containing the current character object
+    :param direction: an integer, between 1 and 4, inclusive, that represents the movement direction
+    :precondition: board is a dictionary with location data, in tuple keys, with string descriptions
+    :precondition: character is a dictionary with location data, and a health key:value pair
+    :precondition: direction is an integer between 1 and 4
+    :postcondition: the returned boolean indicates the validity of the movement on the board
+    :return: a boolean value representing the validity of the movement direction
+
+    >>> board_1 = {(0, 0): "You're in room (0, 0); It is empty.", (0, 1): "You're in room (0, 1); It is empty.",
+    ... (1, 0): "You're in room (1, 0); It is empty.", (1, 1): "You're in room (1, 1); It is empty."}
+    >>> character_1 = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
+    >>> direction_1 = 2
+    >>> validate_move(board_1, character_1, direction_1)
+    True
+    >>> board_2 = {(0, 0): "You're in room (0, 0); It is empty.", (0, 1): "You're in room (0, 1); It is empty.",
+    ... (1, 0): "You're in room (1, 0); It is empty.", (1, 1): "You're in room (1, 1); It is empty."}
+    >>> character_2 = {'X-coordinate': 0, 'Y-coordinate': 0, 'Current HP': 5}
+    >>> direction_2 = 4
+    >>> validate_move(board_2, character_2, direction_2)
+    False
+    >>> board_3 = {(0, 0): "You're in room (0, 0); It is empty.", (0, 1): "You're in room (0, 1); It is empty.",
+    ... (1, 0): "You're in room (1, 0); It is empty.", (1, 1): "You're in room (1, 1); It is empty."}
+    >>> character_3 = {'X-coordinate': 1, 'Y-coordinate': 1, 'Current HP': 5}
+    >>> direction_3 = 3
+    >>> validate_move(board_3, character_3, direction_3)
+    False
+    """
     if direction == 1:
         if (character["Y-coordinate"] - 1, character["X-coordinate"]) not in board:
             return False
