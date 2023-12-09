@@ -91,21 +91,120 @@ def story_intro():
 
 
 def story_level_2():
-	print("This is the story level 2")
-
+	# 	time.sleep(1)
+	print(f"""
+	After a series of intense battles against Colonel Sanders' guardian hens in the enchanted kitchen, Elyndor could feel the resonance of magical energy coursing through his veins. 
+	The secret herbs and spices that infused the air had not only delighted his taste buds but had also unlocked dormant potential within him.
+	Elyndor shouted at Colonel Sanders, a newfound confidence in his demeanor. "Colonel, I have absorbed the essence of your mystical herbs and spices. 
+	It seems I've leveled up in both magical prowess and culinary wisdom."
+	""")
+# 	time.sleep(1)
+	print(f""" 
+	Colonel Sanders, his eyes gleaming with approval, nodded knowingly. "A worthy mage indeed. But, my friend, the true test awaits. Behold, the Silkie Chickens!"
+	As Colonel Sanders uttered those words, a flock of Silkie Chickens materialized, their fluffy feathers concealing an unexpected strength. 
+	With a wave of Sanders' hand, the silkie guardians joined the ethereal dance of the hens, creating a mesmerizing spectacle of magic and feathers.
+	Elyndor, ready for the challenge, faced the combined force of guardian hens and silkie companions.
+	""")
 
 def story_level_3():
-	print("This is the story level 3")
-
+	print(f"""
+	'With each clash of spells and clucks, Elyndor absorbed the essence of Colonel Sanders' mystical herbs and spices at an unprecedented rate. 
+	The air around him shimmered with a potent magical energy, and his senses heightened to an extraordinary level. 
+	The taste of victory now echoed the symphony of flavors that resonated through the enchanted kitchen.
+	Sensing Elyndor's newfound power, Colonel Sanders raised his hand, commanding the guardian hens to step back. 
+	""")
+# 	time.sleep(1)
+	print(f""" 
+	In their place, a thunderous crow echoed through the cavern as a squadron of majestic roosters materialized, their feathers gleaming in a kaleidoscope of colors.
+	"Elyndor," Colonel Sanders declared, "you have reached the pinnacle of herb and spice mastery. 
+	To truly test your mettle, I present to you my royal Roosters, guardians of the highest order."
+	The roosters, their majestic crowns and regal demeanor revealing their status, circled Elyndor with an air of challenge. 
+	In a graceful motion, Colonel Sanders directed the hens away from the battlefield, leaving only the roosters to face the mage.
+	“If you make it through them, to me, I will grant you the culinary secrets you crave.”
+	""")
 
 def story_sanders():
-	print("This is the story sanders")
-
+	print(f""" 
+	In the heart of Colonel Sanders' enchanted kitchen, a tense silence settled as Elyndor and the culinary wizard faced each other. 
+	The aroma of mystical herbs and spices hung thick in the air, creating an atmosphere charged with anticipation.
+	Colonel Sanders, his eyes gleaming with an intensity that mirrored the magical energies around them, broke the silence with a grave revelation.
+	"Elyndor, the battle that awaits us is not merely a test of skill but a duel for control over the very essence of these herbs and spices. 
+	Whomever emerges victorious will wield the power to command their magic in ways that transcend imagination."
+	""")
+	time.sleep(1)
+	print(f""" 
+	Elyndor's eyes narrowed, sensing the gravity of the situation. "And what fate awaits the one who falters in this mystical clash?"
+	Colonel Sanders' expression turned solemn. "Those who fall in battle will not be lost entirely. 
+	Instead, they shall be reborn in a form befitting this enchanted realm—a creature of feathers and clucks, bound by the magic they sought to control. 
+	The defeated shall become one with the guardian chickens that roam this culinary sanctum."
+	""")
+	time.sleep(1)
+	print(f""" 
+	The weight of Colonel Sanders' words hung in the air, and a solemn understanding passed between mage and culinary wizard. 
+	The stakes were higher than mere culinary triumph; the battle held the power to reshape destinies, merging the fates of the victor and the vanquished with the very magic they sought to command.
+	As the tension mounted, the enchanted kitchen seemed to hold its breath, awaiting the clash that would decide the future of the magical balance within their realm. 
+	Elyndor steeled himself for the impending duel, knowing that the outcome would not only determine the wielder of the herbs and spices but also the very essence of life and magic in this mystical culinary haven.
+	""")
 
 def story_end_of_game():
-	print("This is the story - end of game")
-
-
+	print(f"""
+	The enchanted kitchen trembled with magical energies as Elyndor and Colonel Sanders engaged in a fierce battle, their spells colliding in a dazzling display of light and sound. 
+	The aroma of herbs and spices intensified, weaving into the very fabric of the arcane clash.
+	With a burst of newfound power, Elyndor unleashed a spell that resonated with the essence of the legendary herbs and spices. 
+	The magical currents responded to his command, amplifying his abilities to a level beyond imagination. 
+	The enchanted roosters crowed in acknowledgment, and the mystical tapestry of flavors unfolded before him.
+	""")
+	time.sleep(1)
+	print(f"""
+	Colonel Sanders, recognizing the shift in power, met Elyndor's gaze with a nod of respect. 
+	The culinary wizard, though defeated, bore no resentment. 
+	Instead, he acknowledged the mage's triumph with a twinkle of approval in his eyes.
+	As Elyndor's final incantation echoed through the cavernous halls, the magic of the herbs and spices surged, wrapping around him like a cloak of culinary mastery. 
+	In that moment of triumph, Elyndor felt a profound connection to the very essence of the enchanted kitchen.
+	""")
+	time.sleep(1)
+	print(f"""
+	The air settled, and the aroma of herbs and spices lingered, now under the control of the victorious mage. 
+	Elyndor, staff at his side, stood amidst the magical aftermath, a symbol of the harmonious blend of culinary and arcane arts.
+	With a gesture, Elyndor acknowledged Colonel Sanders. "Your herbs and spices are now mine to command, yet I seek not dominion but a partnership. 
+	Together, we shall preserve the magic that sustains this realm."
+	Colonel Sanders, now transformed into a sage-like figure, nodded in agreement. 
+	"May the alliance between mage and culinary wizard endure, ensuring the legacy of these enchanted flavors transcends time."
+	""")
+	time.sleep(1)
+	print(f"""
+	As the culinary sanctuary embraced the union of mage and spices, Elyndor, now the custodian of the magical essence, contemplated the profound responsibility that came with wielding such power. 
+	The enchanted kitchen, bathed in the glow of victory, awaited a future shaped by the delicate balance of herbs, spices, and the collaborative spirit that had emerged from the crucible of culinary magic.
+	
+	Fin.
+	""")
+	
+	
+	
 def story_character_death():
-	print("You died! This is the story death call!")
-
+	print(f""" 
+	The enchanted kitchen trembled as Elyndor and Colonel Sanders engaged in a fierce magical duel. 
+	Spells crackled through the air, and the clash of mystical energies reverberated within the cavernous chamber. 
+	Despite Elyndor's newfound mastery, Colonel Sanders' culinary sorcery proved to be a formidable force.
+	""")
+	time.sleep(1)
+	print(f""" 
+	In a critical moment, Colonel Sanders unleashed a potent incantation, weaving together the essence of his secret herbs and spices with a burst of enchantment that overwhelmed Elyndor.
+	The mage, momentarily caught off guard, found himself ensnared in a web of magical threads that seemed to strip away his very essence.
+	""")
+	time.sleep(1)
+	print(f""" 
+	As the last remnants of Elyndor's resistance faded, the air shimmered with a profound transformation. 
+	A radiant light enveloped the defeated mage, and in its wake, a small, feathered form emerged. Elyndor, once a powerful mage, now stood transformed into a diminutive, fluffy chicken.
+	Colonel Sanders, his eyes reflecting a mix of regret and resolution, approached the newly formed chicken. 
+	"You fought valiantly, Elyndor, but the magic has chosen its path. You shall now become one with the guardian chickens, preserving the balance within this culinary sanctuary."
+	""")
+	time.sleep(1)
+	print(f""" 
+	'With a wave of his hand, Colonel Sanders infused the chicken with a final burst of enchantment. 
+	The feathers took on a shimmering quality, and the once-mighty mage was reborn as a guardian chicken—clucking softly, his essence forever entwined with the magical tapestry of Colonel Sanders' enchanted kitchen.
+	As the echoes of the magical duel subsided, the defeated mage-turned-chicken joined the ranks of the guardian fowl that roamed the enchanted domain. 
+	The culinary wizard sighed, acknowledging the bittersweet nature of the victory, as the fate of Elyndor became an integral part of the mystical balance that Colonel Sanders sought to maintain within his magical culinary haven.
+	
+	Fin.
+	""")
