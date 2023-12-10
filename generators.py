@@ -79,11 +79,11 @@ def make_character():
 	return {
 		"X-coordinate": 0,
 		"Y-coordinate": 2,
-		"Current HP": 20,
-		"Max HP": 20,
-		"Current Mana": 70,
-		"Max Mana": 70,
-		"Exp": 0,
+		"Current HP": 50,
+		"Max HP": 50,
+		"Current Mana": 75,
+		"Max Mana": 75,
+		"Exp": 14,
 		"Exp Needed": 15,
 		"Current Level": 1}
 

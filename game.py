@@ -5,6 +5,8 @@ A01365553
 import itertools
 
 import sys
+from asyncio import sleep
+
 import story
 import random
 import generators
@@ -69,7 +71,19 @@ def game():
 						combat_logic.combat(character, enemy)
 				if character["Current Level"] < 3:
 					if character["Exp"] >= character["Exp Needed"]:
+						sleep(1)
 						combat_logic.level_up(character)
+						print(f"""
+						You've leveled up!
+						
+						=====================================================================
+						Character Stats: HP: {character['Current HP']}/{character['Max HP']}
+						                 Mana: {character['Current Mana']}/{character['Max Mana']}
+						                 Exp Needed: {character['Exp Needed']} Exp
+						                 Character Level: Level {character['Current Level']}
+						=====================================================================        
+						""")
+
 						if character["Current Level"] == 2:
 							story.story_level_2()
 						if character["Current Level"] == 3:
