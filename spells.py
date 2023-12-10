@@ -6,7 +6,7 @@ def holy_blast(character: dict) -> int:
 	Perform an attack (holy blast) based on the character's current level.
 
 	A function that takes in a character dictionary and generates a return value based upon the character level,
-	multiplied by random numbers generated between 1 and 4.
+	multiplied by random numbers generated between 1 and 3.
 
 	:param character: a character dictionary
 	:precondition: character is a dictionary with a level value
@@ -25,7 +25,7 @@ def holy_blast(character: dict) -> int:
 	"""
 	damage_sum = 0
 	for attack in range(character["Current Level"]):
-		damage_sum += random.randint(1, 4)
+		damage_sum += random.randint(1, 3)
 
 	return damage_sum
 
@@ -35,7 +35,7 @@ def smite(character: dict) -> int:
 	Perform an attack (smite) based on the character's current level.
 
 	A function that takes in a character dictionary and generates a return value based upon the character level,
-	multiplied by random numbers generated between 2 and 7.
+	multiplied by random numbers generated between 2 and 6.
 
 	:param character: a character dictionary
 	:precondition: character is a dictionary with a level value
@@ -55,7 +55,7 @@ def smite(character: dict) -> int:
 	character["Current Mana"] -= 15
 	damage_sum = 0
 	for attack in range(character["Current Level"]):
-		damage_sum += random.randint(2, 7)
+		damage_sum += random.randint(2, 6)
 
 	return damage_sum
 
@@ -146,7 +146,7 @@ def talons() -> int:
 
 def deep_fry() -> int:
 	"""
-	Perform an attack (deep fry) by an enemy.
+	Perform an attack (deepfry) by an enemy.
 
 	A function that randomly generates an integer between 5 and 10 then the function returns that damage integer.
 
