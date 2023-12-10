@@ -154,6 +154,7 @@ def combat(character: dict, enemy: str):
 
     print(f"Combat is happening between the character and a {enemy['name']}.")
 
+    time.sleep(2)
     while character["Current HP"] > 0 and enemy["Current HP"] > 0:
         print_stats(character, enemy)
 
@@ -178,9 +179,11 @@ def combat(character: dict, enemy: str):
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
 
+        time.sleep(1)
         user_spell_choice(character, enemy, user_choice)
 
-        # time.sleep(1)
+        time.sleep(1)
+
         if enemy["Current HP"] <= 0:
             print(f"You've defeated the {enemy['name']}! ")
             spells.post_fight_heal(character)
@@ -192,6 +195,8 @@ def combat(character: dict, enemy: str):
         spells.regen_mana(character)
 
         spells.balance(character)
+
+        time.sleep(1)
 
         print("It's now the enemy's turn.")
 
@@ -322,6 +327,8 @@ def combat(character: dict, enemy: str):
                 breading_cooldown -= 1
             if flavour_blast_cooldown > 0:
                 flavour_blast_cooldown -= 1
+
+        time.sleep(1)
 
         if character["Current HP"] <= 0:
             print(f"Sorry; You've died to a {enemy['name']}")

@@ -10,7 +10,6 @@ import time
 import story
 import random
 import generators
-import spells
 import movement
 import combat_logic
 
@@ -72,7 +71,7 @@ def game():
 						combat_logic.combat(character, enemy)
 				if character["Current Level"] < 3:
 					if character["Exp"] >= character["Exp Needed"]:
-						time.sleep(1)
+						time.sleep(2)
 						combat_logic.level_up(character)
 						print(f"""
 						You've leveled up!
@@ -91,6 +90,7 @@ def game():
 							story.story_level_3()
 				achieved_goal = movement.check_if_goal_attained(character)
 				movement.describe_current_location(board, character)
+				time.sleep(2)
 			else:
 				break
 		else:
@@ -103,8 +103,7 @@ def game():
 		story.story_character_death()
 
 
-def main():
-	# def main(_):
+def main(_):
 	"""
 	Drive the program
 	"""
@@ -115,5 +114,4 @@ if __name__ == "__main__":
 	"""
     Call the main function if current file is called directly
 	"""
-	main()
-# main(sys.argv[0])
+	main(sys.argv[0])

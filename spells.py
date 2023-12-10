@@ -16,11 +16,11 @@ def holy_blast(character: dict) -> int:
 	>>> random.seed(29)
 	>>> character_1 = {"Current Level": 3}
 	>>> holy_blast(character_1)
-	7
+	6
 
 	>>> character_2 = {"Current Level": 2}
 	>>> holy_blast(character_2)
-	4
+	6
 
 	"""
 	damage_sum = 0

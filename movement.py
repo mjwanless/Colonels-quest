@@ -3,10 +3,10 @@ def describe_current_location(board: dict, character: dict):
     """
     Describe the current location that the character is in.
 
-    A function that takes in the current gameboard and the character object and returns a description of the current
+    A function that takes in the current game board and the character object and returns a description of the current
     location, using the coordinates of the character and the description of the current location from the board object.
 
-    :param board: a dictionary containing the current gameboard object
+    :param board: a dictionary containing the current game board object
     :param character: a dictionary containing the current character object
     :precondition: board is a dictionary with location data, in tuple keys, with string descriptions
     :precondition: character is a dictionary with location data
@@ -36,9 +36,9 @@ def get_user_choice() -> int:
     inclusive. The direction is valid only if it is one of the four cardinal directions, represented by integer keys,
     and displayed to the user as a string.
 
-    :postcondition: the returned integer value is between 1 and 4, inclusive.
+    :postcondition: the returned integer value is between 1 and 4, inclusive
     :return: an integer value indicating one of the listed cardinal directions
-    :va
+    :raises ValueError: if user_input is not an integer
     """
     user_directions = {1: "north", 2: "east", 3: "south", 4: "west"}
     valid_user_input = False

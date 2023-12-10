@@ -1,3 +1,4 @@
+
 def make_board() -> dict:
 	"""
 	A function that generates the map for the game.
@@ -47,16 +48,16 @@ def enemy_generator(enemy: str) -> dict:
 	:return: a dictionary that represents an enemy character
 
     >>> enemy_generator("hen")
-    {'name': 'hen', 'Current HP': 20, 'Max HP': 20, 'Exp Value': 2}
+    {'name': 'hen', 'Current HP': 15, 'Max HP': 15, 'Exp Value': 2}
 
     >>> enemy_generator("silkie")
-    {'name': 'silkie', 'Current HP': 35, 'Max HP': 35, 'Exp Value': 3}
+    {'name': 'silkie', 'Current HP': 25, 'Max HP': 25, 'Exp Value': 3}
 
     >>> enemy_generator("rooster")
-    {'name': 'rooster', 'Current HP': 50, 'Max HP': 50, 'Exp Value': 5}
+    {'name': 'rooster', 'Current HP': 40, 'Max HP': 40, 'Exp Value': 5}
 
     >>> enemy_generator("sanders")
-    {'name': 'sanders', 'Current HP': 100, 'Max HP': 100, 'Exp Value': 0}
+    {'name': 'sanders', 'Current HP': 125, 'Max HP': 125, 'Exp Value': 0}
     """
 	if enemy == "hen":
 		return make_hen()
@@ -99,7 +100,7 @@ def make_hen() -> dict:
 	:return: a dictionary that represents a hen enemy
 
 	>>> make_hen()
-	{'name': 'hen', 'Current HP': 20, 'Max HP': 20, 'Exp Value': 2}
+	{'name': 'hen', 'Current HP': 15, 'Max HP': 15, 'Exp Value': 2}
 	"""
 	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 2}
 
@@ -112,7 +113,7 @@ def make_silkie() -> dict:
 	:return: a dictionary that represents a silkie enemy
 
 	>>> make_silkie()
-	{'name': 'silkie', 'Current HP': 35, 'Max HP': 35, 'Exp Value': 3}
+	{'name': 'silkie', 'Current HP': 25, 'Max HP': 25, 'Exp Value': 3}
 	"""
 	return {"name": "silkie", "Current HP": 25, "Max HP": 25, "Exp Value": 3}
 
@@ -125,7 +126,7 @@ def make_rooster() -> dict:
 	:return: a dictionary that represents a rooster enemy
 
 	>>> make_rooster()
-	{'name': 'rooster', 'Current HP': 50, 'Max HP': 50, 'Exp Value': 5}
+	{'name': 'rooster', 'Current HP': 40, 'Max HP': 40, 'Exp Value': 5}
 	"""
 	return {"name": "rooster", "Current HP": 40, "Max HP": 40, "Exp Value": 5}
 
@@ -138,6 +139,6 @@ def make_sanders() -> dict:
 	:return: a dictionary that represents colonel sanders
 
 	>>> make_sanders()
-	{'name': 'sanders', 'Current HP': 100, 'Max HP': 100, 'Exp Value': 0}
+	{'name': 'sanders', 'Current HP': 125, 'Max HP': 125, 'Exp Value': 0}
 	"""
 	return {"name": "sanders", "Current HP": 125, "Max HP": 125, "Exp Value": 0}
