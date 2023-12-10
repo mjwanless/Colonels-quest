@@ -23,7 +23,8 @@ def check_for_foes() -> bool:
 	:postcondition: returns a boolean to simulate the probability of running into an enemy
 	:return: a boolean value
 	"""
-	return random.randint(1, 3) == 1
+	current_value = random.randint(1, 5)
+	return current_value == 1 or current_value == 2
 
 
 def game():
