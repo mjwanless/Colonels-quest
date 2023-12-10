@@ -4,7 +4,7 @@ import generators
 import spells
 
 
-def level_up(character):
+def level_up(character: dict):
     """
     Perform level-up actions for the given character, updating various attributes and displaying character stats.
 
@@ -60,7 +60,7 @@ def generate_enemy(enemy: str) -> dict:
         return generators.make_sanders()
 
 
-def print_stats(character, enemy):
+def print_stats(character: dict, enemy: dict):
     """
     Prints the character's stats along with the enemy's.
 
@@ -80,7 +80,7 @@ def print_stats(character, enemy):
             """)
 
 
-def print_spells(character):
+def print_spells(character: dict):
     """
     Prints the character's spells and selection options.
 
@@ -100,12 +100,12 @@ def print_spells(character):
     """)
 
 
-def user_spell_choice(character, enemy, user_choice):
+def user_spell_choice(character: dict, enemy: dict, user_choice: int):
     """
     Choose a spell based on the user's input and send that damage/health to the correct recipient by calling the
     correct spell function.
 
-    This function recieves a character, an enemy, and the user's choice of spell as input. Depending on the
+    This function receives a character, an enemy, and the user's choice of spell as input. Depending on the
     user's choice, it calls the corresponding spell function from the 'spells' module, applies the spell's
     effects to the enemy and/or character, and prints a message describing the outcome.
 
@@ -120,22 +120,22 @@ def user_spell_choice(character, enemy, user_choice):
     if user_choice == 1:
         damage = spells.holy_blast(character)
         enemy["Current HP"] -= damage
-        print(f"You've done {damage} damage to {enemy['name']}")
+        print(f"You've done {damage} damage to {enemy['name']} with holy blast!")
     elif user_choice == 2 and character["Current Mana"] > 15:
         damage = spells.smite(character)
         enemy["Current HP"] -= damage
-        print(f"You've done {damage} damage to {enemy['name']}")
+        print(f"You've done {damage} damage to {enemy['name']} with smite!")
     elif user_choice == 3:
         damage = spells.judgment(character)
         enemy["Current HP"] -= damage
-        print(f"You've done {damage} damage to {enemy['name']}")
+        print(f"You've done {damage} damage to {enemy['name']} with judgment!")
     elif user_choice == 4:
         heal = spells.heal(character)
         character["Current HP"] += heal
         print(f"You've healed {heal} HP.")
 
 
-def combat(character, enemy):
+def combat(character: dict, enemy: str):
     enemy = generate_enemy(enemy)
 
     peck_cooldown = 0
@@ -237,7 +237,7 @@ def combat(character, enemy):
             if peck_cooldown > 0:
                 peck_cooldown -= 1
             if feather_throw_cooldown > 0:
-                peck_cooldown -= 1
+                feather_throw_cooldown -= 1
             if plumage_cooldown > 0:
                 plumage_cooldown -= 1
 
@@ -277,7 +277,7 @@ def combat(character, enemy):
             if peck_cooldown > 0:
                 peck_cooldown -= 1
             if feather_throw_cooldown > 0:
-                peck_cooldown -= 1
+                feather_throw_cooldown -= 1
             if plumage_cooldown > 0:
                 plumage_cooldown -= 1
             if talons_cooldown > 0:

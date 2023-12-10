@@ -35,7 +35,7 @@ def smite(character: dict) -> int:
 	Perform an attack (smite) based on the character's current level.
 
 	A function that takes in a character dictionary and generates a return value based upon the character level,
-	multiplied by random numbers generated between 1 and 7.
+	multiplied by random numbers generated between 2 and 7.
 
 	:param character: a character dictionary
 	:precondition: character is a dictionary with a level value
@@ -45,7 +45,7 @@ def smite(character: dict) -> int:
 	>>> random.seed(29)
 	>>> character_1 = {"Current Level": 3, "Current Mana": 30}
 	>>> smite(character_1)
-	9
+	12
 
 	>>> character_2 = {"Current Level": 2, "Current Mana": 30}
 	>>> smite(character_2)
@@ -55,7 +55,7 @@ def smite(character: dict) -> int:
 	character["Current Mana"] -= 15
 	damage_sum = 0
 	for attack in range(character["Current Level"]):
-		damage_sum += random.randint(1, 7)
+		damage_sum += random.randint(2, 7)
 
 	return damage_sum
 
@@ -337,7 +337,7 @@ def regen_mana(character: dict):
 	"""
 	Regenerate mana each turn after player commits to an attack.
 
-	A function that modifies and increases the value of the character's "Current Mana" value by 7 + 1 * the
+	A function that modifies and increases the value of the character's "Current Mana" value by 7 + 2 * the
 	character's level.
 
 	:param character: a character dictionary
@@ -348,15 +348,15 @@ def regen_mana(character: dict):
 	>>> character_1 = {"Current Level": 1, "Current Mana": 30, "Max Mana": 200}
 	>>> regen_mana(character_1)
 	>>> character_1["Current Mana"]
-	38
+	39
 
 	>>> character_2 = {"Current Level": 3, "Current Mana": 30, "Max Mana": 200}
 	>>> regen_mana(character_2)
 	>>> character_2["Current Mana"]
-	40
+	43
 
 	"""
-	character["Current Mana"] += 7 + character["Current Level"] * 1
+	character["Current Mana"] += 7 + character["Current Level"] * 2
 	if character["Current Mana"] > character["Max Mana"]:
 		character["Current Mana"] = character["Max Mana"]
 
