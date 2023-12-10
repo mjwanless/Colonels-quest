@@ -129,7 +129,8 @@ def story_level_3():
 	"Elyndor," Colonel Sanders declared, "you have reached the pinnacle of herb and spice mastery. 
 	To truly test your mettle, I present to you my royal Roosters, guardians of the highest order."
 	The roosters, their majestic crowns and regal demeanor revealing their status, circled Elyndor with an air of challenge. 
-	In a graceful motion, Colonel Sanders directed the hens away from the battlefield, leaving only the roosters to face the mage.
+	In a graceful motion, Colonel Sanders directed the hens away from the battlefield, leaving only the roosters and 
+	silkies to face the mage.
 	“If you make it through them, to me, I will grant you the culinary secrets you crave.”
 	""")
 
