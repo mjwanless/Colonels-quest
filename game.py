@@ -15,7 +15,7 @@ import movement
 import combat_logic
 
 
-def check_for_foes():
+def check_for_foes() -> bool:
 	"""
 	Determine if a randomly-generated number is of a particular value and return the boolean to simulate a random
 	combat encounter.
@@ -93,7 +93,7 @@ def game():
 			else:
 				break
 		else:
-			print("Nice try, but you've hit a wall! Please try a different direction.")
+			print(f"Nice try, but you've hit a wall! Please try a different direction.")
 
 	if character["Current HP"] > 0:
 		story.story_end_of_game()

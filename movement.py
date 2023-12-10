@@ -1,5 +1,5 @@
 
-def describe_current_location(board, character):
+def describe_current_location(board: dict, character: dict):
     """
     Describe the current location that the character is in.
 
@@ -27,7 +27,7 @@ def describe_current_location(board, character):
     print(board[(character["Y-coordinate"], character["X-coordinate"])])
 
 
-def get_user_choice():
+def get_user_choice() -> int:
     """
     Receive user input and validate the selected direction so that it can work with the game board.
 
@@ -56,7 +56,7 @@ def get_user_choice():
     return user_direction_input
 
 
-def validate_move(board, character, direction):
+def validate_move(board: dict, character: dict, direction: int) -> bool:
     """
     Determine whether a direction will extend past the edges of the game board and prevent invalid movement by the
     character if so.
@@ -109,7 +109,7 @@ def validate_move(board, character, direction):
     return True
 
 
-def move_character(character, direction):
+def move_character(character: dict, direction: int):
     """
     Move the character to a new location on the board.
 
@@ -149,7 +149,7 @@ def move_character(character, direction):
         character["X-coordinate"] -= 1
 
 
-def check_if_goal_attained(character):
+def check_if_goal_attained(character: dict) -> bool:
     """
     Check to see if the character has reached the goal, or the designated spot on the board.
 

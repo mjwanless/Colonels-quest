@@ -1,7 +1,7 @@
 import random
 
 
-def holy_blast(character):
+def holy_blast(character: dict) -> int:
 	"""
 	Perform an attack (holy blast) based on the character's current level.
 
@@ -30,7 +30,7 @@ def holy_blast(character):
 	return damage_sum
 
 
-def smite(character):
+def smite(character: dict) -> int:
 	"""
 	Perform an attack (smite) based on the character's current level.
 
@@ -60,7 +60,7 @@ def smite(character):
 	return damage_sum
 
 
-def feather_throw():
+def feather_throw() -> int:
 	"""
 	Perform an attack (feather throw) by an enemy.
 
@@ -85,7 +85,7 @@ def feather_throw():
 	return damage_sum
 
 
-def flavour_blast():
+def flavour_blast() -> int:
 	"""
 	Perform an attack (flavour blast) by an enemy.
 
@@ -119,7 +119,7 @@ def flavour_blast():
 		return 20
 
 
-def talons():
+def talons() -> int:
 	"""
 	Perform an attack (talons) by an enemy.
 
@@ -144,7 +144,7 @@ def talons():
 	return damage_sum
 
 
-def deep_fry():
+def deep_fry() -> int:
 	"""
 	Perform an attack (deep fry) by an enemy.
 
@@ -164,7 +164,7 @@ def deep_fry():
 	return random.randint(5, 10)
 
 
-def herbs_and_spices():
+def herbs_and_spices() -> int:
 	"""
 	Perform an attack (herbs and spices) by an enemy.
 
@@ -189,7 +189,7 @@ def herbs_and_spices():
 	return damage_sum
 
 
-def plumage():
+def plumage() -> int:
 	"""
 	Perform a heal (plumage) by an enemy.
 
@@ -209,7 +209,7 @@ def plumage():
 	return random.randint(1, 5)
 
 
-def scratch():
+def scratch() -> int:
 	"""
 	Perform an attack (scratch) by an enemy.
 
@@ -229,7 +229,7 @@ def scratch():
 	return random.choice((1, 2, 3, 4))
 
 
-def peck():
+def peck() -> int:
 	"""
 	Perform an attack (peck) by an enemy.
 
@@ -249,7 +249,7 @@ def peck():
 	return random.choice((2, 4, 6))
 
 
-def judgment(character):
+def judgment(character: dict) -> int:
 	"""
 	Perform an attack (judgment) based on the character's current level.
 
@@ -279,7 +279,7 @@ def judgment(character):
 	return damage_sum
 
 
-def breading():
+def breading() -> int:
 	"""
 	Perform a healing move (breading) by an enemy.
 
@@ -303,7 +303,7 @@ def breading():
 	return heal_sum
 
 
-def heal(character):
+def heal(character: dict) -> int:
 	"""
 	Perform a healing move based on the character's current level.
 
@@ -333,7 +333,7 @@ def heal(character):
 	return heal_sum
 
 
-def regen_mana(character):
+def regen_mana(character: dict):
 	"""
 	Regenerate mana each turn after player commits to an attack.
 
@@ -361,7 +361,7 @@ def regen_mana(character):
 		character["Current Mana"] = character["Max Mana"]
 
 
-def post_fight_heal(character):
+def post_fight_heal(character: dict):
 	"""
 	Regenerate mana and health after each combat encounter ends.
 
@@ -393,7 +393,7 @@ def post_fight_heal(character):
 	balance(character)
 
 
-def balance(character):
+def balance(character: dict):
 	"""
 	Balance the character's current health and mana values to not exceed the maximum character value.
 

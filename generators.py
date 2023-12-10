@@ -1,6 +1,9 @@
-def make_board():
+def make_board() -> dict:
 	"""
 	A function that generates the map for the game.
+
+	:postcondition: the game board is generated and usable by the program
+
 	"""
 	board_dictionary = {
 		(row, column): f'You\'re in room ({row}, {column}); There is nothing but fine hardwood under your feet.'
@@ -34,7 +37,7 @@ def make_board():
 	return board_dictionary
 
 
-def enemy_generator(enemy):
+def enemy_generator(enemy: str) -> dict:
 	"""
     Generate an enemy, based on the input string name.
 
@@ -65,15 +68,15 @@ def enemy_generator(enemy):
 		return make_sanders()
 
 
-def make_character():
+def make_character() -> dict:
 	"""
 	Generate the character object.
 
 	:postcondition: the returned object represents the character's stats.
-	:return: a dictionary that represents an player character
+	:return: a dictionary that represents a player character
 
 	>>> make_character()
-	{'X-coordinate': 0, 'Y-coordinate': 2, 'Current HP': 20, 'Max HP': 20, 'Current Mana': 70, 'Max Mana': 70, 'Exp': 0, 'Exp Needed': 15, 'Current Level': 1}
+	{'X-coordinate': 0, 'Y-coordinate': 2, 'Current HP': 50, 'Max HP': 50, 'Current Mana': 75, 'Max Mana': 75, 'Exp': 14, 'Exp Needed': 15, 'Current Level': 1}
 
 	"""
 	return {
@@ -88,7 +91,7 @@ def make_character():
 		"Current Level": 1}
 
 
-def make_hen():
+def make_hen() -> dict:
 	"""
 	Generate the hen object.
 
@@ -98,10 +101,10 @@ def make_hen():
 	>>> make_hen()
 	{'name': 'hen', 'Current HP': 20, 'Max HP': 20, 'Exp Value': 2}
 	"""
-	return {"name": "hen", "Current HP": 20, "Max HP": 20, "Exp Value": 2}
+	return {"name": "hen", "Current HP": 15, "Max HP": 15, "Exp Value": 2}
 
 
-def make_silkie():
+def make_silkie() -> dict:
 	"""
 	Generate the silkie object.
 
@@ -111,10 +114,10 @@ def make_silkie():
 	>>> make_silkie()
 	{'name': 'silkie', 'Current HP': 35, 'Max HP': 35, 'Exp Value': 3}
 	"""
-	return {"name": "silkie", "Current HP": 35, "Max HP": 35, "Exp Value": 3}
+	return {"name": "silkie", "Current HP": 25, "Max HP": 25, "Exp Value": 3}
 
 
-def make_rooster():
+def make_rooster() -> dict:
 	"""
 	Generate the rooster object.
 
@@ -124,10 +127,10 @@ def make_rooster():
 	>>> make_rooster()
 	{'name': 'rooster', 'Current HP': 50, 'Max HP': 50, 'Exp Value': 5}
 	"""
-	return {"name": "rooster", "Current HP": 50, "Max HP": 50, "Exp Value": 5}
+	return {"name": "rooster", "Current HP": 40, "Max HP": 40, "Exp Value": 5}
 
 
-def make_sanders():
+def make_sanders() -> dict:
 	"""
 	Generate the sanders boss object.
 
@@ -137,4 +140,4 @@ def make_sanders():
 	>>> make_sanders()
 	{'name': 'sanders', 'Current HP': 100, 'Max HP': 100, 'Exp Value': 0}
 	"""
-	return {"name": "sanders", "Current HP": 100, "Max HP": 100, "Exp Value": 0}
+	return {"name": "sanders", "Current HP": 125, "Max HP": 125, "Exp Value": 0}
