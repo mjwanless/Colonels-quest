@@ -38,6 +38,7 @@ def get_user_choice() -> int:
 
     :postcondition: the returned integer value is between 1 and 4, inclusive.
     :return: an integer value indicating one of the listed cardinal directions
+    :va
     """
     user_directions = {1: "north", 2: "east", 3: "south", 4: "west"}
     valid_user_input = False

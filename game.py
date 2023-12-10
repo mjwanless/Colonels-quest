@@ -5,7 +5,7 @@ A01365553
 import itertools
 
 import sys
-from asyncio import sleep
+import time
 
 import story
 import random
@@ -71,7 +71,7 @@ def game():
 						combat_logic.combat(character, enemy)
 				if character["Current Level"] < 3:
 					if character["Exp"] >= character["Exp Needed"]:
-						sleep(1)
+						time.sleep(1)
 						combat_logic.level_up(character)
 						print(f"""
 						You've leveled up!

@@ -45,10 +45,16 @@ def generate_enemy(enemy: str) -> dict:
     :return: a dictionary
 
     >>> generate_enemy("hen")
-    {'name': 'hen', 'Current HP': 20, 'Max HP': 20, 'Exp Value': 2}
+    {'name': 'hen', 'Current HP': 15, 'Max HP': 15, 'Exp Value': 2}
 
     >>> generate_enemy("silkie")
-    {'name': 'silkie', 'Current HP': 35, 'Max HP': 35, 'Exp Value': 3}
+    {'name': 'silkie', 'Current HP': 25, 'Max HP': 25, 'Exp Value': 3}
+
+    >>> generate_enemy("rooster")
+    {'name': 'rooster', 'Current HP': 40, 'Max HP': 40, 'Exp Value': 5}
+
+    >>> generate_enemy("sanders")
+    {'name': 'sanders', 'Current HP': 125, 'Max HP': 125, 'Exp Value': 0}
     """
     if enemy == "hen":
         return generators.make_hen()
