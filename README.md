@@ -1,68 +1,45 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/hUT_Zi9D)
-# COMP-1510-202330-Term-Project
+# Colonel's Quest!
+![Game Running on command line](https://github.com/mjwanless/Colonels-quest/blob/main/Screenshot%202024-01-13%20190355.jpg)
+![Game Running on command line](https://github.com/mjwanless/Colonels-quest/blob/main/Screenshot%202024-01-13%20190422.jpg)
 
-Every program needs a README.md
+## Developer:
 
-This is written in markdown. Read about markdown here: [markdowncheatsheet](https://www.markdownguide.org/cheat-sheet/)
+Hello! I'm Malcolm Wanless, and this is my Python-coded, text-based adventure game. I developed it as part of an end-of-term project over the course of a couple of weeks.
 
-## Your name:
+# User Guide 
+## How to Run
 
-Malcolm Wanless
+- Clone with `git clone`
+- Run `python game.py` to start the game.
+- Navigate through locations using number-based inputs (1, 2, 3, 4); The directions are stated on the command line.
+- Encounter variations of chickens and roosters and engage in combat.
+- Level up by gaining experience points (Exp).
+- Keep going until you're able to reach Colonel Sanders in his chambers. If you can defeat him, you win.
 
-## Your student number:
+## Combat
 
-A01365553
+This game uses a combat system not dissimilar to a DnD-style D20/3.5 number generation for things such as pseudo-random values and damage.
+Both the player and enemies use the same kind of system to generate damage and healing.
+Healing and regeneration occur during and after the combat rounds.
 
-## Your GitHub username:
+## Requirements
 
-mjwanless
+- Python 3.11 or newer
 
-## Any important comments you'd like to make about your work:
+## Disclaimer
 
-Not at the moment; All game info is below.
+This project is for educational purposes only and is not intended for commercial use. 
+All game assets and code are the property of the respective creators.
 
-### Here some 
+## Takeaways
 
-Hey Chris;
+I really enjoyed working on this project. While it was a lot of work to do alongside the other five classes that I had that semester (including a full-stack web dev course), I found myself wanting to continue to add more levels and features as I went. Some of the things that I would like to add eventually are:
+- A wider variety of enemies
+- More spells
+- Better combat balance
+- More maps
+- A GUI interface
 
-Not sure if you'll look at the readme, but here is the logic behind my design:
+This was also a great project for practicing unit testing and exception handling; Developing for testing made me appreciate the kind of detail that is needed to build more robust programs.
 
-I wanted to take a goofy story and craft a simple, traditional turn-based RPG around that, within the realm of the 
-project. Hopefully, you find it fun. Instead of balancing the game toward punishing, there are a decent amount of story 
-parts, so I didn't want this to take forever. Instead, I erred towards too easy, since this project is about showing 
-mechanics rather than a game you can play for weeks. 
-
-Hopefully I've done that here. Have fun!
-
-(I assume that the below is what you mean when you ask for "README.md contains required
-information in tabular form.")
-
-| Requirement                                               |                      Fulfilled                       |
-|:----------------------------------------------------------|:----------------------------------------------------:|
-| **Proper Github use?**                                    |                     I believe so                     |
-| **Proper Identifiers?**                                   |                         Yes                          |
-| **Style warnings?**                                       |                         None                         | 
-| **Functions =  15 lines or fewer?**                       | No; I couldn't atomize some of the logic effectively | 
-| **Global Variables?**                                     |                         None                         | 
-| **Function annotations?**                                 |                         Yes                          | 
-| **Evidence for play to level 10 Aardwolf?**               |                         Yes                          | 
-| **Doctests for all functions that need them?**            |                         Yes                          | 
-| **2-3 doctests each?**                                    |                         Yes                          | 
-| **Unit tests exist?**                                     |                         Yes                          | 
-| **Unit tests cover many different cases?**                |                         Yes                          | 
-| **Code compiles correctly via the command line?**         |                         Yes                          | 
-| **Game board 5 x 5 minimum?**                             |                         Yes                          | 
-| **Gameplay ends at the correct point?**                   |                         Yes                          | 
-| **Character movement is validated and restricted?**       |                         Yes                          | 
-| **Variety of challenges?**                                |                         Yes                          | 
-| **Mutability is minimized?**                              |                         Yes                          | 
-| **Scope of mutables is minimized?**                       |                         Yes                          | 
-| **One or more list/dict comprehensions?**                 |                         Yes                          | 
-| **If statement?**                                         |                         Yes                          | 
-| **For/while loop?**                                       |                         Yes                          | 
-| **Good range() use?**                                     |                         Yes                          | 
-| **Itertools use?**                                        |                         Yes                          | 
-| **Output formatting?**                                    |                         Yes                          | 
-| **Flowchart exists?**                                     |                         Yes                          | 
-| **Readme contains required information in tabular form?** |                         Yes                          | 
-| **Docstrings complete and helpful?**                      |                         Yes                          | 
+**Thanks for checking this out!**
